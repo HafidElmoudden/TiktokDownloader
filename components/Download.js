@@ -17,10 +17,11 @@ import MainButton from './MainButton';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import RNFS from 'react-native-fs';
 import DownloadButton from './DownloadButton';
+import URLParse from 'url-parse';
 // import ufs from '"url-file-size"';
 
 const URL_DOWNLOAD =
-  'https://www.tiktok.com/node/share/video/@hazo9a1/7125918538094759174';
+  'https://www.tiktok.com/@hazo9a1/video/7125918538094759174';
 
 const DownloadPath =
   RNFS.ExternalStorageDirectoryPath + '/' + 'ATiktokDownloader';
@@ -72,9 +73,10 @@ function Download() {
       alert('URL Field is empty!');
       return;
     }
-
+    let paresedUrlObject = URLParse(url).pathname.split("/");
+    let URL = `https://www.tiktok.com/node/share/video/${paresedUrlObject[1]}/${paresedUrlObject[3]}`
     setLoading(true);
-    fetch(url).then(res => {
+    fetch(URL).then(res => {
       // setLoading(false);
       res
         .json()
