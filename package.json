@@ -25,7 +25,8 @@
     "react-native-safe-area-context": "^4.3.1",
     "react-native-screens": "^3.15.0",
     "react-native-tab-view": "^3.1.1",
-    "url-file-size": "^1.0.3"
+    "url-file-size": "^1.0.3",
+    "url-parse": "^1.5.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
