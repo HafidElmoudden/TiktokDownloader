@@ -1,6 +1,6 @@
 import React from 'react';
-import Download from '../components/Download';
-import History from '../components/History';
+import Download from '../screens/Download';
+import History from '../screens/History';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
