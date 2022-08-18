@@ -5,9 +5,7 @@ export default function CustomProgressBar({visible}) {
   return (
     <Modal
       onRequestClose={() => console.log('Preventing Modal Close')}
-      visible={visible}
-      transparent={true}
-      >
+      visible={visible}>
       <View
         style={{
           flex: 1,

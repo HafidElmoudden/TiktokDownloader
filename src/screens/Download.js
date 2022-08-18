@@ -1,9 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  TextInput,
-  Clipboard,
-} from 'react-native';
+import {View, TextInput, Clipboard} from 'react-native';
 // import Clipboard from "@react-native-community/react-native-clipboard";
 import MainButton from '../components/MainButton';
 import RNFS from 'react-native-fs';
@@ -25,22 +21,22 @@ function Download() {
   const [loading, setLoading] = useState(false);
   let refRBSheet = React.createRef(null);
 
-  const loadingHander = (value) => {
+  const loadingHander = value => {
     setLoading(value);
-  }
+  };
 
   const fetchCopiedText = async () => {
     const text = await Clipboard.getString();
     setSearch(text);
   };
 
-  const fetchDataHandler = (value) => {
+  const fetchDataHandler = value => {
     setFetchedData(value);
-  }
+  };
 
-  const refHandler = (value) => {
+  const refHandler = value => {
     refRBSheet = value;
-  }
+  };
 
   const downloadHandler = async () => {
     await DownloadFolderMaker();
@@ -94,12 +90,11 @@ function Download() {
               marginTop: '5%',
             }}>
             <MainButton title={'Download'} pressHandler={downloadHandler} />
-            <CustomProgressBar visible={loading} />
           </View>
         </View>
       </View>
-      <BottomSheet  fetchedData={fetchedData} refHandler={refHandler}/>
-
+      <CustomProgressBar visible={loading} />
+      <BottomSheet fetchedData={fetchedData} refHandler={refHandler} />
     </>
   );
 }

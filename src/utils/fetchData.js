@@ -1,10 +1,9 @@
-import { Alert } from 'react-native';
 import URLParse from 'url-parse';
 
-const fetchData = async (url, loadingHander, fetchDataHandler, refRBSheet) => {
+const fetchData = async (url, loadingHandler, fetchDataHandler, refRBSheet) => {
   try {
     if (url === '') {
-      Alert('URL Field is empty!');
+      alert('URL Field is empty!');
       return;
     }
 
@@ -14,7 +13,7 @@ const fetchData = async (url, loadingHander, fetchDataHandler, refRBSheet) => {
 
     let URL = `https://www.tiktok.com/node/share/video/${userName}/${postId}`;
 
-    loadingHander(true);
+    loadingHandler(true);
 
     fetch(URL).then(res => {
       res
@@ -22,14 +21,14 @@ const fetchData = async (url, loadingHander, fetchDataHandler, refRBSheet) => {
         .then(json => {
           fetchDataHandler(json);
           refRBSheet.current.open();
-          loadingHander(false);
+          loadingHandler(false);
         })
-        .finally(() => loadingHander(false))
-        .catch(e => loadingHander(false));
+        .finally(() => loadingHandler(false))
+        .catch(e => loadingHandler(false));
     });
   } catch (e) {
-    console.log('fetchData: Error : ' , e);
-    Alert("Error occured please make sure the url is correct!")
+    console.log('fetchData: Error : ', e);
+    alert('Error occured please make sure the url is correct!');
   }
 };
 

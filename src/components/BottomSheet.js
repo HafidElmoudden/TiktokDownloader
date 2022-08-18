@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import DownloadButton from './DownloadButton';
 import {Image, View, Text, StyleSheet} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
@@ -6,9 +6,8 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 const BottomSheet = ({fetchedData, refHandler}) => {
   const RBSheetRef = useRef(null);
 
-  if(RBSheetRef)
-    refHandler(RBSheetRef);
-  console.log("reached??,xd");
+  if (RBSheetRef) refHandler(RBSheetRef);
+  console.log('reached??,xd');
   return (
     <RBSheet
       ref={RBSheetRef}
