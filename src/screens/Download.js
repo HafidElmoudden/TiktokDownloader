@@ -93,8 +93,8 @@ function Download() {
           </View>
         </View>
       </View>
-      <CustomProgressBar visible={loading} />
-      <BottomSheet fetchedData={fetchedData} refHandler={refHandler} />
+      {/* <CustomProgressBar visible={loading} /> */}
+      <BottomSheet fetchedData={fetchedData} refHandler={refHandler} loading={loading} />
     </>
   );
 }

@@ -14,13 +14,13 @@ const fetchData = async (url, loadingHandler, fetchDataHandler, refRBSheet) => {
     let URL = `https://www.tiktok.com/node/share/video/${userName}/${postId}`;
 
     loadingHandler(true);
+    refRBSheet.current.open();
 
     fetch(URL).then(res => {
       res
         .json()
         .then(json => {
           fetchDataHandler(json);
-          refRBSheet.current.open();
           loadingHandler(false);
         })
         .finally(() => loadingHandler(false))
