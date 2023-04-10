@@ -1,20 +1,26 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import TopTabNavigation from './src/navigation/TopTabNavigation';
-import {I18nManager} from 'react-native';
+import React, { useEffect } from "react";
+import {I18nManager, StatusBar} from "react-native";
+import Download from "./src/screens/Download";
+import initAppLovinMax from "./src/utils/AppLovin";
+import SplashScreen from 'react-native-splash-screen'
 
 function App() {
-
   try {
     I18nManager.allowRTL(false);
   } catch (e) {
     console.log(e);
   }
 
+  useEffect(() => {
+    initAppLovinMax();
+    SplashScreen.hide();
+  }, [])
+  
   return (
-    <NavigationContainer>
-      <TopTabNavigation />
-    </NavigationContainer>
+    <>
+      <StatusBar backgroundColor={"#30A6A6"} />
+      <Download />
+    </>
   );
 }
 
